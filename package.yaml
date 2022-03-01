@@ -1,0 +1,119 @@
+name:                gifit
+version:             0.1.0.0
+github:              "githubuser/gifit"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2020 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/gifit#readme>
+
+ghc-options:
+- -Wall
+- -j
+- -Wcompat
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wredundant-constraints
+- -fplugin=Polysemy.Plugin
+- -fwarn-incomplete-record-updates
+
+default-extensions:
+- BlockArguments
+- DataKinds
+- DeriveGeneric
+- FlexibleContexts
+- FlexibleInstances
+- FunctionalDependencies
+- GADTs
+- GeneralizedNewtypeDeriving
+- LambdaCase
+- MultiParamTypeClasses
+- NoImplicitPrelude
+- OverloadedStrings
+- PolyKinds
+- QuasiQuotes
+- RankNTypes
+- RecordWildCards
+- ScopedTypeVariables
+- StandaloneDeriving
+- TemplateHaskell
+- TypeApplications
+- TypeOperators
+- TypeFamilies
+
+dependencies:
+- aeson
+- base >= 4.7 && < 5
+- base64-bytestring
+- bytestring
+- cryptonite
+- email-validate
+- exceptions
+- http-api-data
+- http-types
+- lens
+- memory
+- mime-mail
+- polysemy
+- polysemy-plugin
+- postgresql-simple
+- postgresql-simple-migration
+- refined
+- relude
+- resource-pool
+- scientific
+- servant
+- servant-auth
+- servant-auth-server
+- servant-server
+- smtp-mail
+- string-interpolate
+- text
+- time
+- uri-encode
+- uuid
+- uuid-types
+- wai
+- wai-cors
+- warp
+
+library:
+  source-dirs: src
+
+executables:
+  gifit-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - gifit
+
+tests:
+  gifit-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - gifit
+    - hspec
+    - hspec-wai
+    - hspec-wai-json
+    - wai-extra

@@ -1,0 +1,209 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 643ae58e085b3a193f27655aae4eef226f04a7ff84cb6296dceb184dee0538fc
+
+name:           gifit
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/gifit#readme>
+homepage:       https://github.com/githubuser/gifit#readme
+bug-reports:    https://github.com/githubuser/gifit/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/gifit
+
+library
+  exposed-modules:
+      App
+      Controllers.Gift
+      Controllers.Password
+      Controllers.Payment
+      Controllers.Registration
+      Controllers.Session
+      Controllers.User
+      Effects.Database
+      Effects.Random
+      Models.Gift
+      Models.User
+      Services.Email
+      Services.Password
+      Services.Signature
+      Types.ActivationForm
+      Types.AmountInput
+      Types.AppError
+      Types.ClientHost
+      Types.CreateGiftResponse
+      Types.CurrentUser
+      Types.Direction
+      Types.Email
+      Types.EmailInput
+      Types.ForgetPasswordForm
+      Types.Gift
+      Types.GiftDetail
+      Types.GiftForm
+      Types.GiftState
+      Types.HandleInput
+      Types.HashedPassword
+      Types.IndexGiftsResponse
+      Types.LoginForm
+      Types.PasswordInput
+      Types.Receiver
+      Types.ResetPasswordForm
+      Types.SecretKey
+      Types.ServerHost
+      Types.SignupForm
+      Types.User
+      Types.UserQuery
+      Types.UserSearchInput
+  other-modules:
+      Paths_gifit
+  hs-source-dirs:
+      src
+  default-extensions: BlockArguments DataKinds DeriveGeneric FlexibleContexts FlexibleInstances FunctionalDependencies GADTs GeneralizedNewtypeDeriving LambdaCase MultiParamTypeClasses NoImplicitPrelude OverloadedStrings PolyKinds QuasiQuotes RankNTypes RecordWildCards ScopedTypeVariables StandaloneDeriving TemplateHaskell TypeApplications TypeOperators TypeFamilies
+  ghc-options: -Wall -j -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -fplugin=Polysemy.Plugin -fwarn-incomplete-record-updates
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , base64-bytestring
+    , bytestring
+    , cryptonite
+    , email-validate
+    , exceptions
+    , http-api-data
+    , http-types
+    , lens
+    , memory
+    , mime-mail
+    , polysemy
+    , polysemy-plugin
+    , postgresql-simple
+    , postgresql-simple-migration
+    , refined
+    , relude
+    , resource-pool
+    , scientific
+    , servant
+    , servant-auth
+    , servant-auth-server
+    , servant-server
+    , smtp-mail
+    , string-interpolate
+    , text
+    , time
+    , uri-encode
+    , uuid
+    , uuid-types
+    , wai
+    , wai-cors
+    , warp
+  default-language: Haskell2010
+
+executable gifit-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_gifit
+  hs-source-dirs:
+      app
+  default-extensions: BlockArguments DataKinds DeriveGeneric FlexibleContexts FlexibleInstances FunctionalDependencies GADTs GeneralizedNewtypeDeriving LambdaCase MultiParamTypeClasses NoImplicitPrelude OverloadedStrings PolyKinds QuasiQuotes RankNTypes RecordWildCards ScopedTypeVariables StandaloneDeriving TemplateHaskell TypeApplications TypeOperators TypeFamilies
+  ghc-options: -Wall -j -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -fplugin=Polysemy.Plugin -fwarn-incomplete-record-updates -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , base64-bytestring
+    , bytestring
+    , cryptonite
+    , email-validate
+    , exceptions
+    , gifit
+    , http-api-data
+    , http-types
+    , lens
+    , memory
+    , mime-mail
+    , polysemy
+    , polysemy-plugin
+    , postgresql-simple
+    , postgresql-simple-migration
+    , refined
+    , relude
+    , resource-pool
+    , scientific
+    , servant
+    , servant-auth
+    , servant-auth-server
+    , servant-server
+    , smtp-mail
+    , string-interpolate
+    , text
+    , time
+    , uri-encode
+    , uuid
+    , uuid-types
+    , wai
+    , wai-cors
+    , warp
+  default-language: Haskell2010
+
+test-suite gifit-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_gifit
+  hs-source-dirs:
+      test
+  default-extensions: BlockArguments DataKinds DeriveGeneric FlexibleContexts FlexibleInstances FunctionalDependencies GADTs GeneralizedNewtypeDeriving LambdaCase MultiParamTypeClasses NoImplicitPrelude OverloadedStrings PolyKinds QuasiQuotes RankNTypes RecordWildCards ScopedTypeVariables StandaloneDeriving TemplateHaskell TypeApplications TypeOperators TypeFamilies
+  ghc-options: -Wall -j -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -fplugin=Polysemy.Plugin -fwarn-incomplete-record-updates -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , base64-bytestring
+    , bytestring
+    , cryptonite
+    , email-validate
+    , exceptions
+    , gifit
+    , hspec
+    , hspec-wai
+    , hspec-wai-json
+    , http-api-data
+    , http-types
+    , lens
+    , memory
+    , mime-mail
+    , polysemy
+    , polysemy-plugin
+    , postgresql-simple
+    , postgresql-simple-migration
+    , refined
+    , relude
+    , resource-pool
+    , scientific
+    , servant
+    , servant-auth
+    , servant-auth-server
+    , servant-server
+    , smtp-mail
+    , string-interpolate
+    , text
+    , time
+    , uri-encode
+    , uuid
+    , uuid-types
+    , wai
+    , wai-cors
+    , wai-extra
+    , warp
+  default-language: Haskell2010
